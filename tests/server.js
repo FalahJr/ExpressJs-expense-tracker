@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
-import { port } from "./config.js";
-import routes from "./routes/index.js";
+import { port_test } from "../config";
+import routes from "../routes/index";
 
 const app = express();
 
@@ -13,8 +13,8 @@ app.use(express.json());
 app.use(routes);
 // routes(app);
 
-app.listen(port, () => {
-  console.log(`PORT listen to ${port}`);
+app.listen(port_test, () => {
+  console.log(`PORT listen to ${port_test}`);
 });
 
-export default app;
+module.exports = app;

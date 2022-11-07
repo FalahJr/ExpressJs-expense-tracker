@@ -9,11 +9,11 @@ export const register = async (req, res) => {
   const { email, password, name } = req.body;
   try {
     if (!name) {
-      return res.status(400).json({ error: "name harus di isi" });
+      return res.status(401).json({ error: "name harus di isi" });
     } else if (!email) {
-      return res.status(400).json({ error: "Email harus di isi" });
+      return res.status(402).json({ error: "Email harus di isi" });
     } else if (!password) {
-      return res.status(400).json({ error: "Password harus di isi" });
+      return res.status(403).json({ error: "Password harus di isi" });
     }
     const password_hash = await hash(password);
     const user = await prisma.users.create({
@@ -103,7 +103,7 @@ export const updateUser = async (req, res) => {
 
 export const deleteUser = async (req, res) => {
   try {
-    const user = await prisma.User.delete({
+    const user = await prisma.users.delete({
       where: {
         id: Number(req.params.id),
       },
