@@ -5,7 +5,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "port-wsl": "lsof -i -P -n | grep LISTEN",
     "port-win": "netstat -a | grep LISTEN",
     "kill-port": "npx kill-port 8000",
@@ -30,7 +30,9 @@
     "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
+    "jest": "^29.2.2",
     "nodemon": "^2.0.20",
-    "prisma": "^4.5.0"
+    "prisma": "^4.5.0",
+    "supertest": "^6.3.1"
   }
 }
